@@ -1,0 +1,38 @@
+{
+  "backbone": "qwen",
+  "backend": "mlx",
+  "model": "mlx-community/Qwen2.5-7B-Instruct-4bit",
+  "memory_gb": 4.743410562,
+  "mean_latency_s": 3.1426924365079367,
+  "calls_logged": 12600,
+  "role_stats": {
+    "baseline": {
+      "n": 900,
+      "latency_s": 4.039731555555556,
+      "prompt_tokens": 603.2366666666667,
+      "gen_tokens": 33.77,
+      "retry_share": 0.0
+    },
+    "persona": {
+      "n": 5400,
+      "latency_s": 2.877441796296296,
+      "prompt_tokens": 382.4033333333333,
+      "gen_tokens": 24.75722222222222,
+      "retry_share": 0.0
+    },
+    "aggregate": {
+      "n": 900,
+      "latency_s": 4.590649555555555,
+      "prompt_tokens": 603.1133333333333,
+      "gen_tokens": 42.242222222222225,
+      "retry_share": 0.0
+    },
+    "homog": {
+      "n": 5400,
+      "latency_s": 3.0171103703703706,
+      "prompt_tokens": 371.2366666666667,
+      "gen_tokens": 22.453333333333333,
+      "retry_share": 0.0
+    }
+  }
+}

@@ -1,0 +1,86 @@
+data:
+  mask_placeholders: false      # true replaces <copyright> and <url> markers with [...] for every system
+
+backbones:
+  qwen:
+    backend: mlx
+    model: mlx-community/Qwen2.5-7B-Instruct-4bit
+    workers: 1                  # MLX runs one call at a time
+    # Seconds per article and run, measured on one MacBook Air (24 articles, 2 runs).
+    # main = 8 calls. homog = 6 calls (measured as 6 persona calls). delib and selfcons were never measured.
+    # Used by --estimate only until enough calls of that type are logged; then the logged latencies take over.
+    assumed_s_per_article_run: {main: 26.5, homog: 18.5, delib: 21, selfcons: 18.5}
+  glm:
+    backend: ollama
+    model: glm4:9b
+    host: http://localhost:11434
+    workers: 1                  # more than 1 only if Ollama was started with OLLAMA_NUM_PARALLEL (see README)
+    assumed_s_per_article_run: {main: 36.3, homog: 24.5, delib: 28, selfcons: 24.5}
+
+llm:
+  temp_persona: 0.6
+  temp_judge: 0.3
+  max_tokens: {stance: 120, judge: 200, delib: 120}
+  max_retries: 2                # extra attempts, with a new seed, when an answer cannot be parsed
+  n_draws: 6                    # draws per article and run for the ablation that samples one agent repeatedly
+  homogeneous_persona: persona_centrist
+
+ablations:
+  systems: [homogeneous]        # homogeneous, deliberative, selfconsistency; only the first one is run by default
+  subset: minority_first        # minority_first keeps every article of the rarer class, then fills at random; or random
+
+# Silver labels: one annotator LLM from another model family than the two backbones above.
+# It reads the full annotation guideline once per article and never sees the gold labels.
+# Run it with annotate_silver.py.
+silver:
+  backend: ollama
+  model: mistral-nemo:latest    # 12B; alternative: phi4 (14B). Mixtral 8x7B (47B) does not fit in 24 GB.
+  host: http://localhost:11434
+  passes: 1                     # one annotation per article, with the guideline word for word
+  temp: 0.0
+  max_tokens: 120
+  max_retries: 2
+  assumed_s_per_call: 12
+
+metrics:
+  k_values: [10, 20]
+  ece_bins: 15
+  min_minority_for_trust: 15    # below this many minority articles the report prints a warning
+
+baselines:
+  enabled: [tfidf, roberta_ft, da_roberta_ft, da_roberta_transfer]
+  roberta_model: roberta-base
+  da_roberta_model: mediabiasgroup/da-roberta-babe-ft
+  da_positive_label: null       # output index meaning "biased"; null = guess from the checkpoint labels (printed at run time)
+  max_len: 256
+  epochs: 4
+  batch_size: 16
+  lr: 2.0e-5
+  cv_mode: stratified           # stratified, or topic_grouped (keeps similar topics in the same fold)
+
+# max_articles and ablation_articles can be overridden on the command line (--max-articles, --ablation-articles).
+profiles:
+  smoke:                        # plumbing check on the first 8 articles
+    max_articles: 8
+    ablation_articles: 4
+    paraphrases: 2
+    seeds: [0]
+    cv_folds: 2
+    cv_seeds: [0]
+    roberta_epochs: 1
+  check:                        # check on a small file (around 24 articles)
+    max_articles: null
+    ablation_articles: 8
+    paraphrases: 2
+    seeds: [0]
+    cv_folds: 3
+    cv_seeds: [0, 1]
+    roberta_epochs: 2
+  final:                        # the real experiment: 3 paraphrases x 3 seeds = 9 runs
+    max_articles: null          # all articles of the files you pass (200), or --max-articles 100
+    ablation_articles: 60       # or --ablation-articles 100 / all
+    paraphrases: 3
+    seeds: [0, 1, 2]
+    cv_folds: 5
+    cv_seeds: [0, 1, 2]
+    roberta_epochs: 4

@@ -1,0 +1,30 @@
+# System and Python files
+.DS_Store
+__pycache__/
+*.pyc
+.pytest_cache/
+*.log
+
+# Article text (misinfo-general, CC BY-NC-SA): never commit it
+data/*_with_text.csv
+data/annotation_*.csv
+data/by_annotator/
+data/export/
+data/needs_adjudication.csv
+
+# Run files that contain the article text (prompts and per-article cards)
+outputs/**/calls_*.jsonl
+outputs/*/readable/articles/
+outputs/smoke/
+outputs/check/
+
+# Gold sampling: dataset, intermediate files and caches (about 230 MB)
+gold_sampling/misinfo-general/
+gold_sampling/candidates.parquet
+gold_sampling/proxies.parquet
+gold_sampling/data/
+gold_sampling/logs/
+gold_sampling/gold_sample/
+gold_sampling/pilot_annotation/
+gold_sampling/pilot_candidates.csv
+gold_sampling/sample_report.md

@@ -1,0 +1,17 @@
+name: audience-pipeline
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - numpy
+      - pandas
+      - scipy
+      - scikit-learn
+      - pyarrow
+      - pyyaml
+      - tqdm
+      - torch
+      - transformers
+      - mlx-lm

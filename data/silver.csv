@@ -1,0 +1,101 @@
+item_id,article_id,label,confidence,agreement,reason,n_yes,n_valid,passes,model
+W1-045,2022-0023739,YES,high,high,The topic of animal testing for transgender research is divisive and controversial.,1,1,1,mistral-nemo:latest
+W1-029,2021-0298907,YES,high,high,The election results and the political divide between conservative and socialist candidates are clearly stated.,1,1,1,mistral-nemo:latest
+W1-014,2017-0077869,YES,high,high,The text explicitly discusses a political figure's actions (Trump's attacks on Puerto Rico officials) which are divisive and have sparked public debate.,1,1,1,mistral-nemo:latest
+W1-003,2019-0571010,YES,high,high,The topic of counterterrorism efforts and [...] Africa is a divisive issue with differing opinions on how to address it.,1,1,1,mistral-nemo:latest
+W1-040,2021-0452715,YES,high,high,The topic of criticism against Dr. Anthony Fauci is a divisive political issue with widespread debate.,1,1,1,mistral-nemo:latest
+W1-021,2019-0312071,YES,high,high,The topic of Russian interference [...] and the credibility of the Mueller report are widely debated and divisive issues.,1,1,1,mistral-nemo:latest
+W1-038,2021-0187504,YES,high,high,The topic of bombing campaigns in the [...] is a highly controversial and divisive issue.,1,1,1,mistral-nemo:latest
+W1-002,2022-0201368,YES,high,high,"The topic of reducing dependence on Russian oil and gas is a divisive political issue, with some supporting sanctions and others prioritizing energy security.",1,1,1,mistral-nemo:latest
+W1-010,2021-0364940,YES,high,high,"The topic of accepting or offering aid, especially in relation to national pride and self-sufficiency, is a divisive issue with differing opinions among the public.",1,1,1,mistral-nemo:latest
+W1-027,2020-0242857,YES,high,high,"The passage directly compares controversial actions of two presidents, implying a polarized public opinion on their decisions.",1,1,1,mistral-nemo:latest
+W1-046,2020-0760690,YES,high,high,"Trump's tweets discuss divisive political topics (election, party affiliation, taxes, gun rights) with no consensus.",1,1,1,mistral-nemo:latest
+W1-036,2019-0244336,YES,high,high,The artwork and its political message are explicitly stated and divisive.,1,1,1,mistral-nemo:latest
+W1-011,2019-0190502,YES,high,high,The topic of Trump-Russia collusion is a highly divisive and debated issue in American politics.,1,1,1,mistral-nemo:latest
+W1-043,2022-0621991,YES,high,high,"The topic involves a security breach and potential assassination threats against a high-ranking political figure, which is a highly controversial issue.",1,1,1,mistral-nemo:latest
+W1-016,2019-0025709,YES,high,high,The topic of mass bank withdrawals by Yellow Vest protesters is divisive and politically charged.,1,1,1,mistral-nemo:latest
+W1-030,2020-0926265,YES,high,high,"The topic revolves around political negotiations over stimulus package size, a divisive issue with opposing views from Democrats and Republicans.",1,1,1,mistral-nemo:latest
+W1-019,2020-0740616,NO,high,high,The text discusses a non-controversial event: a political campaign tour.,0,1,1,mistral-nemo:latest
+W1-001,2019-0394737,YES,high,high,The topic of association with white supremacists and far-right figures is highly controversial and divisive.,1,1,1,mistral-nemo:latest
+W1-039,2020-0385121,YES,high,high,The topic of racial tension and police brutality against Black Americans is a highly controversial and divisive issue in the U.S.,1,1,1,mistral-nemo:latest
+W1-034,2021-0247947,YES,high,high,"The topic of COVID-19 pandemic and its handling is a highly divisive issue, with differing opinions on how it should be addressed.",1,1,1,mistral-nemo:latest
+W1-020,2020-0351514,YES,high,high,The decision to withdraw [...] is a divisive political move with opposing views among NATO allies and other nations.,1,1,1,mistral-nemo:latest
+W1-018,2020-0175508,YES,high,high,The article discusses the controversial topic of Bernie Sanders' continued candidacy despite his delegate deficit and the ongoing COVID-19 pandemic.,1,1,1,mistral-nemo:latest
+W1-035,2022-0117463,YES,high,high,The Freedom Convoy protest and its implications for vaccine mandates and cross-border trade are divisive topics with opposing viewpoints.,1,1,1,mistral-nemo:latest
+W1-033,2022-0833675,YES,high,high,The film's use of Holocaust story to promote right-wing messaging divides public opinion.,1,1,1,mistral-nemo:latest
+W1-005,2022-0764095,YES,high,high,"The wire-tapping scandal and the government's handling of it are divisive issues, with allegations of cover-up and political implications.",1,1,1,mistral-nemo:latest
+W1-032,2019-0048802,YES,high,high,"The topic involves allegations against [...], which is a highly divisive and controversial issue.",1,1,1,mistral-nemo:latest
+W1-004,2020-0929608,NO,high,high,The text discusses the composition and plans of Biden's economic team without mentioning any controversial topics.,0,1,1,mistral-nemo:latest
+W1-044,2019-0175594,NO,high,high,"The topic is a lighthearted, non-controversial listing of fictional characters and celebrities in a White House report.",0,1,1,mistral-nemo:latest
+W1-024,2021-0174943,YES,high,high,The topic of hate speech definition and censorship is divisive and widely debated.,1,1,1,mistral-nemo:latest
+W1-047,2022-0801267,YES,high,high,"The lawsuit alleges government collusion [...], a highly divisive issue with opposing views on free speech and government intervention.",1,1,1,mistral-nemo:latest
+W1-026,2020-0675424,YES,high,high,The topic directly involves political polarization around trust in the Trump administration's handling of the COVID-19 pandemic and vaccine safety.,1,1,1,mistral-nemo:latest
+W1-013,2022-0039153,YES,high,high,The topic of [...] Iran and the revival of the 2015 nuclear deal are well-established controversial issues.,1,1,1,mistral-nemo:latest
+W1-042,2019-0425780,YES,high,high,The topic [...] is a highly divisive and controversial issue in the U.S.,1,1,1,mistral-nemo:latest
+W1-007,2022-0564372,YES,high,high,The topic of abortion rights is a highly divisive issue with widespread moral and political debate.,1,1,1,mistral-nemo:latest
+W1-031,2017-0002241,YES,high,high,"The topic is the confirmation [...], which is a highly controversial and polarized issue.",1,1,1,mistral-nemo:latest
+W1-022,2017-0000573,YES,high,high,"The election of Jon Ossoff, a Democrat, in a historically Republican district is a highly polarized issue.",1,1,1,mistral-nemo:latest
+W1-012,2020-0965403,YES,high,high,The topic of climate change and its impact on investments is a widely debated and controversial issue.,1,1,1,mistral-nemo:latest
+W1-050,2020-0629582,YES,high,high,"The topic involves alleged criminal activities by a prominent political figure, which is a divisive issue.",1,1,1,mistral-nemo:latest
+W1-025,2019-0417077,YES,high,high,The use of children as political props is a divisive issue with opposing views on exploitation vs. free speech.,1,1,1,mistral-nemo:latest
+W1-049,2019-0116489,NO,high,high,The topic is a non-divisive fact about an election process.,0,1,1,mistral-nemo:latest
+W1-028,2017-0052766,YES,high,high,The pardon of Joe Arpaio is a divisive political issue with opposing views from Trump and the Republican establishment.,1,1,1,mistral-nemo:latest
+W1-023,2021-0110988,YES,high,high,The topic of climate change and its role in international relations and statecraft is widely debated and divisive.,1,1,1,mistral-nemo:latest
+W1-015,2020-0318877,YES,high,high,The topic of holding a remote convention due to the pandemic is divisive among Democrats and has potential implications for the election process.,1,1,1,mistral-nemo:latest
+W1-009,2017-0003854,YES,high,high,The topic of Trump/Russia collusion is a highly polarized political issue with sharply opposing camps.,1,1,1,mistral-nemo:latest
+W1-008,2017-0074078,YES,high,high,The topic of NFL players kneeling during the national anthem is a highly polarized issue with sharply opposing camps.,1,1,1,mistral-nemo:latest
+W1-037,2021-0170066,YES,high,high,"The topic of military actions and their justification is a divisive issue, and the resurfacing of [...] actions adds to the controversy.",1,1,1,mistral-nemo:latest
+W1-017,2020-0755143,YES,high,high,"The Nagorno-Karabakh conflict is a long-standing, internationally recognized dispute with sharply opposing camps.",1,1,1,mistral-nemo:latest
+W1-006,2020-0716587,YES,high,high,"The topic directly involves a unilateral action by the US that is opposed by its allies and the UN, dividing global opinion on Iran sanctions.",1,1,1,mistral-nemo:latest
+W1-048,2017-0030641,YES,high,high,The topic of climate change and its political implications are widely debated and divisive.,1,1,1,mistral-nemo:latest
+W1-041,2021-0308610,YES,high,high,The topic of abortion funding is a highly divisive and polarized issue in the U.S.,1,1,1,mistral-nemo:latest
+W2-030,2019-0513711,YES,high,high,"The topic of marijuana legalization is a divisive issue with opposing views on its benefits, legality, and potential health concerns.",1,1,1,mistral-nemo:latest
+W2-012,2021-0696717,NO,high,high,"The topic is about a non-divisive, widely accepted environmental initiative with no opposing camps.",0,1,1,mistral-nemo:latest
+W2-010,2021-0215509,YES,high,high,The topic of HR 1's provisions and their impact on election processes and voter qualifications is a highly debated and divisive issue among the U.S. public and political landscape.,1,1,1,mistral-nemo:latest
+W2-016,2022-0977346,YES,high,high,The topic of Russia's war in Ukraine is a highly controversial and divisive issue globally.,1,1,1,mistral-nemo:latest
+W2-035,2019-0152145,YES,high,high,"The Arab Spring and its aftermath, including the rise and fall of leaders like Mubarak and Sisi, are highly controversial topics with polarized public opinion.",1,1,1,mistral-nemo:latest
+W2-045,2021-0447986,YES,high,high,The investigation into Hunter Biden's business dealings is a politically divisive issue with widespread public debate.,1,1,1,mistral-nemo:latest
+W2-005,2019-0526298,NO,high,high,"The text discusses a campaign event and Biden's confidence in winning, which is not a divisive topic.",0,1,1,mistral-nemo:latest
+W2-031,2017-0069183,YES,high,high,Trump's threat [...] is a highly divisive and controversial statement that actively divides public opinion.,1,1,1,mistral-nemo:latest
+W2-038,2022-0003019,YES,high,high,The topic of Sudan's political transition and military-civilian relations is a highly controversial and divisive issue.,1,1,1,mistral-nemo:latest
+W2-021,2019-0357101,YES,high,high,"The topic involves potential misuse of public funds for personal gain, which is a divisive issue with widespread debate.",1,1,1,mistral-nemo:latest
+W2-007,2022-0165298,YES,high,high,The topic directly addresses the controversial issue of US-led military interventions and the disparity in international response to such actions compared to Russia's invasion of Ukraine.,1,1,1,mistral-nemo:latest
+W2-047,2021-0372810,YES,high,high,The topic of 'patriotic education' vs 'critical race theory' is a highly polarized political issue.,1,1,1,mistral-nemo:latest
+W2-008,2022-0598412,YES,high,high,"The ruling involves a politically divisive figure and a request for sensitive information, sparking potential debate over privacy vs. transparency.",1,1,1,mistral-nemo:latest
+W2-017,2020-0022275,YES,high,high,"The topic of Google's censorship of Press TV, a pro-Iran media outlet, is divisive and politically charged.",1,1,1,mistral-nemo:latest
+W2-004,2019-0283170,YES,high,high,The topic of migration policies and border control is highly controversial and divisive.,1,1,1,mistral-nemo:latest
+W2-023,2020-0963324,NO,high,high,"The selection of Time's [...] is a non-controversial, widely accepted process.",0,1,1,mistral-nemo:latest
+W2-006,2020-0668612,YES,high,high,"The passage explicitly contrasts two opposing views on national security and foreign policy, with clear references to controversial topics like the Iran Nuclear Deal and relations with China.",1,1,1,mistral-nemo:latest
+W2-042,2017-0086868,YES,high,high,"The topic of Donald Trump's presidency and his relationship with media, particularly Fox News, is highly controversial and divisive.",1,1,1,mistral-nemo:latest
+W2-003,2020-0451211,YES,high,high,The topic of hacktivism and government control of information is divisive and generates widespread debate.,1,1,1,mistral-nemo:latest
+W2-037,2017-0016262,YES,high,high,"The passage explicitly discusses Trump's presidency and its impact on various aspects of society, which is a highly controversial topic.",1,1,1,mistral-nemo:latest
+W2-033,2021-0868404,YES,high,high,The topic of election fraud is highly divisive and politically charged.,1,1,1,mistral-nemo:latest
+W2-019,2019-0424924,YES,high,high,"The topic of investigating [...] been a source of political division, is controversial.",1,1,1,mistral-nemo:latest
+W2-024,2022-0842775,NO,high,high,"The topic is a personal decision by [...] to run for president, which is not a divisive or controversial issue.",0,1,1,mistral-nemo:latest
+W2-043,2020-0489480,YES,high,high,"The allocation of student fees to a non-registered group, especially one with controversial political ties, is divisive and violates established guidelines.",1,1,1,mistral-nemo:latest
+W2-020,2020-0395716,YES,high,high,The topic of police brutality and the role of COVID-19 lockdown in the subsequent unrest is divisive and widely debated.,1,1,1,mistral-nemo:latest
+W2-015,2021-0361264,YES,high,high,The topic of US-China tensions and the risk of a global clash is a widely debated and divisive issue.,1,1,1,mistral-nemo:latest
+W2-029,2019-0183161,YES,high,high,Trump's criticism of McCain's record on Veterans Choice is a divisive political topic with opposing views.,1,1,1,mistral-nemo:latest
+W2-036,2020-0633571,YES,high,high,The [...] by Rep. Matt Gaetz is a divisive political issue due to its threatening nature and the public figures involved.,1,1,1,mistral-nemo:latest
+W2-039,2020-0506295,YES,high,high,"The passage discusses the interpretation of the Constitution and Supreme Court decisions, which are highly divisive topics with sharply opposing camps.",1,1,1,mistral-nemo:latest
+W2-040,2022-0563253,YES,high,high,The topic of bail reform and its consequences is a highly controversial and divisive issue in New York City.,1,1,1,mistral-nemo:latest
+W2-044,2022-0314617,YES,high,high,"The prisoner exchange between Russia and the US, especially during the ongoing conflict in Ukraine, is a highly controversial topic with sharply opposing views.",1,1,1,mistral-nemo:latest
+W2-034,2019-0424117,YES,high,high,"The topic discusses the potential impeachment of President Trump, a highly divisive issue among the public.",1,1,1,mistral-nemo:latest
+W2-041,2019-0071790,YES,high,high,The topic of recognizing Juan Guaidó as Venezuela's president is a divisive political issue with opposing views.,1,1,1,mistral-nemo:latest
+W2-022,2019-0003602,YES,high,high,"The topic of creating a terrorist registry is divisive and politically charged, with potential opposition and differing views on its effectiveness and ethical implications.",1,1,1,mistral-nemo:latest
+W2-001,2020-0088003,YES,high,high,The topic of coronavirus outbreak and quarantine measures are divisive and actively debated.,1,1,1,mistral-nemo:latest
+W2-011,2017-0080202,NO,high,high,"The topic is about the financial impact of hurricane relief, which is not a divisive issue.",0,1,1,mistral-nemo:latest
+W2-026,2022-0103120,YES,high,high,"The topic of Iran's nuclear program and potential deals is a long-standing, divisive issue with sharply opposing camps.",1,1,1,mistral-nemo:latest
+W2-018,2020-0747157,YES,high,high,"The topic involves corruption and misuse of funds within a prominent union, which is a divisive issue among its members and the public.",1,1,1,mistral-nemo:latest
+W2-014,2021-0347585,YES,high,high,"The topic of genocide recognition, particularly regarding Uyghurs and Armenians, is a highly controversial and divisive issue with widespread moral and political debate.",1,1,1,mistral-nemo:latest
+W2-048,2021-0131878,YES,high,high,"The incident involves a high-profile political figure and raises questions about ethics and accountability, which are divisive topics.",1,1,1,mistral-nemo:latest
+W2-025,2019-0469794,YES,high,high,"The topic of voting rights and access, particularly in the context of Republican legislatures [...], is a highly controversial and polarized issue.",1,1,1,mistral-nemo:latest
+W2-049,2020-0863646,YES,high,high,"The topic of election fraud in Wisconsin is a highly divisive and controversial issue, with claims of vote dumps and irregularities.",1,1,1,mistral-nemo:latest
+W2-050,2021-0350993,YES,high,high,The topic of YouTube's censorship policies and freedom of speech is a widely debated issue.,1,1,1,mistral-nemo:latest
+W2-027,2021-0203830,YES,high,high,The topic of immigration policy and COVID-19 response is a highly divisive issue with sharply opposing camps.,1,1,1,mistral-nemo:latest
+W2-032,2022-0013746,YES,high,high,"The statue honoring Qassem Soleimani is a divisive symbol, and its torching indicates opposing views on his legacy.",1,1,1,mistral-nemo:latest
+W2-046,2017-0085517,YES,high,high,The topic of anthropogenic global warming and its causes is a widely debated and controversial issue.,1,1,1,mistral-nemo:latest
+W2-002,2017-0043079,YES,high,high,The topic of a potential military strike against North Korea is a highly divisive and controversial issue.,1,1,1,mistral-nemo:latest
+W2-013,2019-0204953,YES,high,high,The topic of containing [...] a divisive issue with sharply opposing camps.,1,1,1,mistral-nemo:latest
+W2-028,2017-0076569,YES,high,high,"The topic of NFL players protesting during the national anthem is a well-established, divisive issue in American society.",1,1,1,mistral-nemo:latest
+W2-009,2019-0424346,YES,high,high,The passage discusses the controversial topic of Greta Thunberg's associations with powerful politicians involved in industries she speaks out against.,1,1,1,mistral-nemo:latest

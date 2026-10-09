@@ -1,0 +1,122 @@
+# Gold-sample pipeline config (controversy annotation, ~200 articles).
+# Every random draw is seeded from here; each run copies the resolved config
+# into logs/ next to its log file so any output can be traced to its settings.
+
+seed: 20261005                 # master seed; sub-seeds are derived per step (see gold/common.py)
+
+paths:
+  metadata_db: misinfo-general/metadata.db
+  hf_dataset: ioverho/misinfo-general
+  data_dir: data               # intermediate per-article stats, Reddit posts, Wikipedia lists
+  logs_dir: logs
+  candidates: candidates.parquet
+  proxies: proxies.parquet
+  sample_dir: gold_sample      # sample_wave*.csv (internal) + annotation files (blind)
+  returned_dir: gold_sample/annotationsW{k}   # labelled files as handed back, per wave
+  report: sample_report.md
+
+# ---------------------------------------------------------------- Step 1
+content:
+  workers: 4                   # parallel parquet files streamed at once
+  batch_size: 2000
+  mask_tokens: ["<copyright>", "<twitter>", "<url>", "<selfref>"]
+
+filters:
+  min_words: 150
+  max_words: 2000
+  max_mask_share: 0.5          # drop if > this share of whitespace tokens are mask tokens
+  min_title_chars: 20
+  exclude_mbfc_labels: [Satire]   # satire is not news
+  # near-duplicate titles: normalised token-set key (gold/candidates.py::_title_key);
+  # within a group the earliest article is kept (ties: article_id)
+  political:
+    # topic-level rule (gold/candidates.py::political_topics, lexicon in gold/political.py):
+    # keep topic if title_share >= min_title_share
+    #   OR (>= alt_min_rep_hits political keywords in its representation AND title_share >= alt_min_title_share)
+    min_title_share: 0.30      # share of the topic's article titles hitting the political lexicon
+    alt_min_rep_hits: 1
+    alt_min_title_share: 0.15
+
+bias3:                         # MBFC `bias` -> 3 levels used for strata
+  Left: [Extreme Left, Left, Left-Center]
+  Center: [Least Biased]
+  Right: [Right-Center, Right, Extreme Right]
+  # anything else (NULL bias) -> Unknown
+
+reliability_pool:              # MBFC `label` -> reliable / unreliable (the "pool" dimension)
+  unreliable: [Questionable Source, Conspiracy-Pseudoscience]
+  # every other label -> reliable
+
+# ---------------------------------------------------------------- Step 2
+reddit:
+  api: https://arctic-shift.photon-reddit.com/api
+  subreddits: [politics, news, worldnews, Conservative]
+  # 2018 is skipped on purpose: the dataset has no raw_url for 2018
+  windows:
+    - ["2017-04-01", "2017-12-01"]
+    - ["2019-01-01", "2023-02-01"]
+  workers: 6                   # concurrent requests; the API answers 'slow down' when busy
+  sleep_s: 0.2                 # pause between requests, per worker
+  max_retries: 8
+  fields: [id, url, score, num_comments, created_utc, subreddit, retrieved_on, crosspost_parent]
+  max_days_after_pub: 30       # a post counts as a match only within this lag
+  upvote_ratio_valid_from: "2020-01-01"   # earlier posts carry a constant 1 placeholder -> NaN
+  gold_top_comments: 20        # top-level comments (by score) per post kept in gold_sample/export
+
+wiki:
+  api: https://en.wikipedia.org/w/api.php
+  user_agent: "DataReadyEvalAI-student-project/0.1 (academic) python-requests"
+  min_interval_s: 6.5          # anonymous clients without contact info: 10 req/min
+  issue_exclude_sections: [People, Entertainment, Sports, Languages]   # LCI sections that are not "issues"
+  max_page_df: 0.03            # issue pages hit by > 3% of candidates are corpus-generic -> ignored
+  # generic words that are canonical titles of listed pages but almost never mean the issue in a
+  # news title ("Woman charged...", "Senate race", "bank", ...); curated from the top hits, see report
+  stop_aliases: [woman, women, race, bank, insurance, prison, politics, gender, texas, mexico, china,
+                 united states, facebook, twitter, x, death, university, california]
+
+# ---------------------------------------------------------------- Step 3
+proxy_flag:                    # H (high signal) if ANY listed rule fires; thresholds set after Step 2
+  rules: [wiki_topic, wiki_title, reddit_low_ratio, reddit_disagreement, reddit_discussion]
+  wiki_topic_min_pages: 1      # topic keywords hit >= n LCI issue pages
+  wiki_title_min_pages: 1      # article title hits >= n LCI issue pages
+  reddit_max_upvote_ratio: 0.80
+  reddit_min_comments: 20
+  reddit_min_disagreement: 0.20
+  reddit_min_comment_ratio: 2.0
+
+allocation:
+  # frame every article (random and stratified) is drawn from:
+  #   reddit_matched = the distant-supervision pool, i.e. articles linked from the 4 subreddits (m1)
+  #   all            = whole candidate universe (then put 2018 back in `years` and matched_share: 0.5)
+  sampling_pool: reddit_matched
+  # 2026-10-08: reduced from 200 in 4 waves to 100 in 2 waves (wave 1 was drawn under the 200 plan;
+  # its 10 random + 40 stratified are exactly one wave of the 100 plan)
+  n_total: 100
+  n_waves: 2
+  n_random: 20                 # SRS from the sampling pool, 10 per wave, never rebalanced
+  random_draw_size: 40         # seeded draw size used for wave 1; the random part is its first n_random (still an SRS)
+  high_share: 0.5              # H share of the stratified 160 (wave 1; rebalance.py adjusts later waves)
+  years: [2017, 2019, 2020, 2021, 2022]   # 2018 has no URLs, so no article of it is in the Reddit pool
+  no_url_years: [2018]         # no Reddit match possible -> all units m0
+  bias_levels: [Left, Center, Right]   # Unknown-bias publishers: random part only
+  pools: [reliable, unreliable]
+  matched_share: 1.0           # target share of Reddit-matched units in URL-year cells
+  min_matched_total: 60
+  publisher_cap_share: 0.05    # <= 5 of 100 from one publisher
+  max_per_topic_month_publisher: 2
+
+annotators: [vladimir, martin, ksenia, raphael, baptiste]   # ksenia back for wave 2 (2026-10-08)
+
+# ---------------------------------------------------------------- Step 5
+assignment:
+  overlap_total: 26            # articles labelled by several annotators (IAA), 13 per wave
+  raters_per_overlap: 5        # every annotator; capped at the number of annotators
+
+# ---------------------------------------------------------------- Step 4 (rebalance.py)
+rebalance:
+  minority: auto               # auto = whichever label is rarer so far; or YES / NO
+  target_min: 0.30             # target minority-class share of the final labelled sample
+  target_max: 0.50
+  high_share_bounds: [0.2, 0.8]   # H share of a wave's stratified part stays in this range
+  prior: [1, 1]                # Beta prior for per-flag minority rates (smoothing small n)
+  min_labelled_share: 0.9      # refuse to rebalance if fewer articles of the wave are labelled

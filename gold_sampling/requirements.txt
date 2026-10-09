@@ -1,0 +1,10 @@
+numpy
+pandas<3
+pyarrow
+pyyaml
+requests
+datasets
+huggingface_hub
+duckdb
+krippendorff
+pytest

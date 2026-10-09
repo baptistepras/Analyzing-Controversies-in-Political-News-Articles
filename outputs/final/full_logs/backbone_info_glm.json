@@ -1,0 +1,38 @@
+{
+  "backbone": "glm",
+  "backend": "ollama",
+  "model": "glm4:9b",
+  "memory_gb": 5.302837574,
+  "mean_latency_s": 3.4094288717867345,
+  "calls_logged": 12604,
+  "role_stats": {
+    "baseline": {
+      "n": 900,
+      "latency_s": 5.325254666666666,
+      "prompt_tokens": 576.8566666666667,
+      "gen_tokens": 47.27111111111111,
+      "retry_share": 0.0
+    },
+    "persona": {
+      "n": 5402,
+      "latency_s": 3.530577045538689,
+      "prompt_tokens": 373.0225842280637,
+      "gen_tokens": 28.714550166604962,
+      "retry_share": 0.00037023324694557573
+    },
+    "aggregate": {
+      "n": 900,
+      "latency_s": 5.780202666666666,
+      "prompt_tokens": 571.1188888888889,
+      "gen_tokens": 52.76777777777778,
+      "retry_share": 0.0
+    },
+    "homog": {
+      "n": 5402,
+      "latency_s": 2.574111940022214,
+      "prompt_tokens": 361.8613476490189,
+      "gen_tokens": 26.009811181044057,
+      "retry_share": 0.00037023324694557573
+    }
+  }
+}
